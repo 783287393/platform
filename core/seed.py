@@ -14,7 +14,7 @@ from . import config, db, importer
 
 REVIEWER = "隋圣丹"
 FIX_BRANCH = "fix/security-headers"
-FIX_COMMIT = "a1b2c3d"  # 演示占位 Commit SHA，真实演示时替换为 git rev-parse HEAD
+FIX_COMMIT = "20312fd"  # fix/security-headers 分支真实 Commit 短 SHA（git rev-parse --short HEAD）
 
 
 def seed(db_path: Optional[str] = None, reset: bool = True) -> dict:
