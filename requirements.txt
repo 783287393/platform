@@ -1,0 +1,5 @@
+# Lab 07 vulnerability management platform - pinned versions for reproducibility
+# Install: python -m pip install -r requirements.txt
+streamlit==1.67.0
+pandas==3.1.1
+pytest==9.2.0

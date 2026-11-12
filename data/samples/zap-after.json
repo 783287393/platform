@@ -1,0 +1,49 @@
+{
+  "site": [
+    {
+      "@name": "http://127.0.0.1:8000",
+      "@host": "127.0.0.1",
+      "@port": "8000",
+      "@ssl": "false",
+      "@address": "127.0.0.1",
+      "alerts": [
+        {
+          "pluginid": "10035",
+          "riskcode": "1",
+          "alert": "Strict-Transport-Security Header Not Set",
+          "name": "Strict-Transport-Security Header Not Set",
+          "desc": "<p>HTTP Strict Transport Security (HSTS) header is not set. Note that HSTS only applies to HTTPS responses.</p>",
+          "solution": "<p>Once the site is served over HTTPS, add a <code>Strict-Transport-Security</code> header with an appropriate max-age.</p>",
+          "cweid": "319",
+          "reference": "",
+          "instances": [
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "Strict-Transport-Security header was not present"
+            }
+          ]
+        },
+        {
+          "pluginid": "10096",
+          "riskcode": "0",
+          "alert": "Server Banner Disclosure",
+          "name": "Server Banner Disclosure",
+          "desc": "<p>The response discloses the server product or version in a header or error page.</p>",
+          "solution": "<p>Remove or minimize version banners in production responses.</p>",
+          "cweid": "200",
+          "reference": "",
+          "instances": [
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "Server: SimpleHTTP/0.6 Python/3.13.16"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

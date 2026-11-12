@@ -1,0 +1,34 @@
+===== 人工复核记录 =====
+复核条数：5
+
+F-1 [Confirmed] Missing Anti-clickjacking Header
+  规则：10020　风险：Medium
+  复核人：隋圣丹　时间：2026-11-11T21:07:21
+  理由：缺少 X-Frame-Options，回环页面可复现；补充响应头后复扫不再出现
+  证据：before 批次实例 evidence 字段可核对
+
+F-2 [Confirmed] X-Content-Type-Options Header Missing
+  规则：10021　风险：Low
+  复核人：隋圣丹　时间：2026-11-11T21:07:21
+  理由：缺少 X-Content-Type-Options，补充 nosniff 后复扫不再出现
+  证据：before 批次实例 evidence 字段可核对
+
+F-3 [Confirmed] Content Security Policy Header Not Set
+  规则：10038　风险：Medium
+  复核人：隋圣丹　时间：2026-11-11T21:07:21
+  理由：缺少 CSP，补充与页面资源兼容的 CSP 后复扫不再出现
+  证据：before 批次实例 evidence 字段可核对
+
+F-4 [Accepted Risk] Strict-Transport-Security Header Not Set
+  规则：10035　风险：Low
+  复核人：隋圣丹　时间：2026-11-11T21:07:21
+  理由：本机 HTTP 演示环境，HSTS 仅适用于 HTTPS；上线 HTTPS 后再评估，残余风险由负责人回看
+  证据：样本站点为 http://127.0.0.1:8000
+
+F-5 [False Positive] Server Banner Disclosure
+  规则：10096　风险：Info
+  复核人：隋圣丹　时间：2026-11-11T21:07:21
+  理由：信息级提示，仅回环地址访问；演示数据无对外暴露的敏感版本信息，判为误报
+  证据：规则 riskcode=0（Info）
+
+覆盖说明：样本共 5 条 Finding，已全部人工复核；真实扫描不足 5 条时复核全部，并记录实际覆盖与判断理由，不伪造告警。

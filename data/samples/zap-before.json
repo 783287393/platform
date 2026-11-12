@@ -1,0 +1,109 @@
+{
+  "site": [
+    {
+      "@name": "http://127.0.0.1:8000",
+      "@host": "127.0.0.1",
+      "@port": "8000",
+      "@ssl": "false",
+      "@address": "127.0.0.1",
+      "alerts": [
+        {
+          "pluginid": "10020",
+          "riskcode": "2",
+          "alert": "Missing Anti-clickjacking Header",
+          "name": "Missing Anti-clickjacking Header",
+          "desc": "<p>The response does not include the <code>X-Frame-Options</code> header. The page may be embedded inside an iframe on an attacker-controlled site, enabling clickjacking.</p>",
+          "solution": "<p>Add a <code>X-Frame-Options</code> header with value <code>DENY</code> or <code>SAMEORIGIN</code>, or a suitable <code>frame-ancestors</code> CSP directive.</p>",
+          "cweid": "103",
+          "reference": "",
+          "instances": [
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "X-Frame-Options header was not present in the response"
+            },
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "X-Frame-Options header was not present in the response"
+            }
+          ]
+        },
+        {
+          "pluginid": "10021",
+          "riskcode": "1",
+          "alert": "X-Content-Type-Options Header Missing",
+          "name": "X-Content-Type-Options Header Missing",
+          "desc": "<p>The response does not set the <code>X-Content-Type-Options</code> header, so browsers may MIME-sniff the response away from the declared content type.</p>",
+          "solution": "<p>Add <code>X-Content-Type-Options: nosniff</code> to responses.</p>",
+          "cweid": "693",
+          "reference": "",
+          "instances": [
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "X-Content-Type-Options header was not present"
+            }
+          ]
+        },
+        {
+          "pluginid": "10038",
+          "riskcode": "2",
+          "alert": "Content Security Policy Header Not Set",
+          "name": "Content Security Policy Header Not Set",
+          "desc": "<p>Content Security Policy (CSP) header not set. Without CSP the browser has no allowlist for scripts, styles and other resources.</p>",
+          "solution": "<p>Deploy a CSP header compatible with the page's scripts and resources; do not blindly use <code>default-src 'none'</code> if it breaks the application.</p>",
+          "cweid": "693",
+          "reference": "",
+          "instances": [
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "Content-Security-Policy header was not present"
+            }
+          ]
+        },
+        {
+          "pluginid": "10035",
+          "riskcode": "1",
+          "alert": "Strict-Transport-Security Header Not Set",
+          "name": "Strict-Transport-Security Header Not Set",
+          "desc": "<p>HTTP Strict Transport Security (HSTS) header is not set. Note that HSTS only applies to HTTPS responses.</p>",
+          "solution": "<p>Once the site is served over HTTPS, add a <code>Strict-Transport-Security</code> header with an appropriate max-age.</p>",
+          "cweid": "319",
+          "reference": "",
+          "instances": [
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "Strict-Transport-Security header was not present"
+            }
+          ]
+        },
+        {
+          "pluginid": "10096",
+          "riskcode": "0",
+          "alert": "Server Banner Disclosure",
+          "name": "Server Banner Disclosure",
+          "desc": "<p>The response discloses the server product or version in a header or error page.</p>",
+          "solution": "<p>Remove or minimize version banners in production responses.</p>",
+          "cweid": "200",
+          "reference": "",
+          "instances": [
+            {
+              "uri": "http://127.0.0.1:8000/",
+              "method": "GET",
+              "param": "",
+              "evidence": "Server: SimpleHTTP/0.6 Python/3.13.16"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

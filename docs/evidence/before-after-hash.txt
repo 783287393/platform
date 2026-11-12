@@ -1,0 +1,7 @@
+===== before/after 样本报告哈希与覆盖说明 =====
+zap-before.json  sha256=a22cd7e6ebddbd6f35ec1c01eee55ccf6ad3cdb6e27220fca3db3ea7393c218f
+zap-after.json  sha256=58fae991fc1dee4ffbc7f24b164e333a875e2df754308f4505bbd8463738a49b
+
+覆盖范围：http://127.0.0.1:8000/ 单页；ZAP 2.17.0 被动规则集；
+前后两轮目标、规则集与数据范围一致。关闭依据为同指纹复扫不再出现，
+不是报告总数下降；覆盖不足时状态保持 Resolved，不判 Verified。

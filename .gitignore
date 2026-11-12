@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# 本地数据库与运行日志（演示后可重建）
+data/*.db
+data/*.db-wal
+data/*.db-shm
+logs/
+
+# 系统与编辑器
+Thumbs.db
+desktop.ini
+.DS_Store
+.idea/
+.vscode/
+
+# 敏感：原始报告、Token、Cookie 不入库（仅保留脱敏样本）
+secrets/
+*.token
+
+# 本地草稿
+/1.txt
