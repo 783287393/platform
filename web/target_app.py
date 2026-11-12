@@ -24,12 +24,19 @@ PAGE = f"""<!doctype html>
 </body>
 </html>"""
 
-# 修复前基线：尚未配置 CSP / X-Frame-Options / X-Content-Type-Options 安全响应头。
+SECURITY_HEADERS = {
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'",
+}
 
 
 def build_headers(add_headers: bool) -> dict[str, str]:
     """回归测试直接调用：返回响应头字典。"""
-    return {"Content-Type": "text/html; charset=utf-8"}
+    headers = {"Content-Type": "text/html; charset=utf-8"}
+    if add_headers:
+        headers.update(SECURITY_HEADERS)
+    return headers
 
 
 def render_page() -> str:
